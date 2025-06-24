@@ -19,5 +19,53 @@
     font-size: 14px;
     animation: fadeIn 0.5s;
 
+}
+.login-popup-title{
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;    
+    color: black;
 
+}
+.login-popup-title img{
+    width: 16px;
+    cursor: pointer;
+}
+.login-popup-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.login-popup-inputs input{
+    
+    outline: none;
+    
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #808080;
+    font-size: 14px;
+}
+.login-popup-container button{
+    border: none;
+    padding: 10px;
+    border-radius: 4px; 
+    color: white;   
+    background-color: tomato;
+    font-size: 15px;
+    cursor: pointer;
+}
+.login-popup-condition{
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    margin-top: -15px;
+    
+}
+.login-popup-condition input{
+    margin-top: 5px;
+}
+.login-popup p span{
+    cursor: pointer;
+    color: tomato;
+    font-weight: 500;
 }
