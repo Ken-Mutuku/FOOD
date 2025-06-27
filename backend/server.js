@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import { connectDB } from './config/db.js';
+import foodRouter from './routes/foodRoute.js';
 // import { config } from 'dotenv';
  
 // app config
@@ -10,12 +12,22 @@ const PORT = 4000;
 app.use(express.json());
 app.use(cors());
 
+//db connection
+connectDB();
+
+//api endpoints
+app.use("/api/food", foodRouter);
+app.use("/images", express.static("uploads")); // serve static files from the uploads directory, mounted the uplaod folder at the endpoint /images
+
+// routes siko sure though
 app.get("/", (req, res) => {
-    res.send("Welcome my the backend server!");
+    res.send("Welcome my first sbackend server!");
     });
 
 // start server, this is a call back function that runs when the server starts
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+//mongodb+srv://kendev:<db_password>@cluster0.ch5xz7x.mongodb.net/?
 
