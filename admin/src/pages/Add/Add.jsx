@@ -1,8 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Add.css'
 import { assets } from '../../assets/assets'
 
 const Add = () => {
+    const[image,setImage] = useState(false);
+    // this also puts the default data sample set
+    const[data,setData] = useState({
+        name:"",
+        description:"",
+        category:"Salad",
+        price:""
+    })
   return (
     <div>
       <div className="add">
@@ -10,9 +18,11 @@ const Add = () => {
             <div className="add-img-upload flex-col">
                 <p>Upload Image</p>
                 <label htmlFor="image">
-                    <img src={assets.upload_area} alt="" />
+                    {/* the url shows a preview of the image */}
+                    <img src={image?URL.createObjectURL(image):assets.upload_area} alt="" />
                 </label>
-                <input type="file" id="image" hidden required />
+                {/* //function which uploads files is based on image */}
+                <input onChange={(e)=>setImage(e.target.files[0])} type="file" id="image" hidden required />
             </div>
             <div className="add-product-name flex-col">
                 <p>Product name</p>
@@ -39,7 +49,7 @@ const Add = () => {
                 </div>
                 <div className="add-price flex-col">
                     <p>Product price</p>
-                    <input type="number" name='price' placeholder='Type here' required />
+                    <input type="number" name='price' placeholder='$20' required />
                 </div>
             </div>
             <button type='submit' className='add-btn'>ADD</button>
