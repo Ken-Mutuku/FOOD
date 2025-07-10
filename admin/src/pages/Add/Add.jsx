@@ -4,8 +4,7 @@ import { assets } from '../../assets/assets'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const Add = () => {
-    const url ="http://localhost:4000";
+const Add = ({url}) => {
     const[image,setImage] = useState(false);
     // this also puts the default data sample set
     const[data,setData] = useState({
