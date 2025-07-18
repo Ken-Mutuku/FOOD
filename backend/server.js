@@ -4,6 +4,7 @@ import { connectDB } from './config/db.js';
 import foodRouter from './routes/foodRoute.js';
 import userRouter from './routes/userRoute.js';
 import 'dotenv/config';
+import cartRouter from './routes/cartRoute.js';
 
 // import { config } from 'dotenv';
  
@@ -22,6 +23,7 @@ connectDB();
 app.use("/api/food", foodRouter);
 app.use("/images", express.static("uploads")); // serve static files from the uploads directory, mounted the uplaod folder at the endpoint /images
 app.use("/api/users", userRouter); // use the userRouter for user related routes
+app.use("/api/cart",cartRouter); // use the cartRouter for cart related routes
 
 
 // routes siko sure though
