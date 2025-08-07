@@ -25,7 +25,7 @@ app.use("/api/food", foodRouter);
 app.use("/images", express.static("uploads")); // serve static files from the uploads directory, mounted the uplaod folder at the endpoint /images
 app.use("/api/users", userRouter); // use the userRouter for user related routes
 app.use("/api/cart",cartRouter); // use the cartRouter for cart related routes
-app.use("api/order",orderRouter)
+app.use("/api/order",orderRouter)
 
 
 // routes siko sure though
