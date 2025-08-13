@@ -6,7 +6,7 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 //creating user order from fronted
 const  placeOrder = async(req, res)=>{
-    const fronted_url = "http://localhost:5173"
+    const fronted_url = "http://localhost:5174"; // Change this to your frontend URL
     try{
         const newOrder = new orderModel({
             userId: req.body.userId,
@@ -86,5 +86,26 @@ const userOrders = async (req, res) => {
         res.json({ success: false, message: "Error calling users order" });
     }
 }
+//listing orders for admin
+const listOrders = async(req, res) => {
+    try{
+        const orders = await orderModel.find({});
+        res.json({success: true, data:orders });
+    }
+    catch(error) {
+        console.log(error);
+        res.json({ success: false, message: "Error listing orders" });
+    }
+}
+//api for updating order status
+const updateStatus = async (req, res) => {
+    try{
+        await orderModel.findByIdAndUpdate(req.body.orderId,{status:req.body.status})
+        res.json({ success: true, message: "Order status updated successfully" });
+    }catch(error) {
+        console.log(error);
+        res.json({ success: false, message: "Error updating order status" });
+    }
+}
 
-export{placeOrder, verifyOrder, userOrders};
+export{placeOrder, verifyOrder, userOrders, listOrders,updateStatus};

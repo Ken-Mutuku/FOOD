@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './PlaceOrder.css'
 import { StoreContext } from '../../context/StoreContext';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 const PlaceOrder = () => {
@@ -54,6 +55,17 @@ const PlaceOrder = () => {
       alert("Failed to place order. Please try again.");
   }
 }
+  // Redirect to order page after placing order
+  
+  useEffect(() => {
+    if(!token){
+      toast.error("Please login to place an order");
+      navigate('/cart')
+    }
+    else if(getTotalCartAmount()===0){
+      navigate('/cart')
+    }
+  },[token])
   return (
     <form onSubmit={placeOrder} className='place-order' action="">
       <div className="place-order-left">
