@@ -30,7 +30,7 @@ cd FOOD
 Backend Setup:
 cd backend
 npm install
-# or yarn install
+
 
 Create a .env file with your secrets:
 JWT_SECRET=your_jwt_secret
@@ -39,7 +39,7 @@ STRIPE_SECRET_KEY=your_stripe_secret_key
 Frontend Setup:
 cd ../Frontend
 npm install
-# or yarn install
+
 
 Start the servers:
 
@@ -56,21 +56,8 @@ Track your orders on the "My Orders" page.
 Admins can log in to manage food items and orders.
 
 **Folder Structure**
-FOOD/
-  ├── backend/
-  │   ├── controllers/
-  │   ├── models/
-  │   ├── routes/
-  │   ├── server.js
-  │   └── .env
-  ├── Frontend/
-  │   ├── src/
-  │   │   ├── pages/
-  │   │   ├── components/
-  │   │   ├── context/
-  │   │   └── assets/
-  │   └── main.jsx
-  └── README.md
+<img width="320" height="347" alt="image" src="https://github.com/user-attachments/assets/52af1454-8ff0-42f0-89df-63721ac1d71f" />
+
   
 **Contributing**
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
